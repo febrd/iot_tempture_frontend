@@ -5,8 +5,8 @@ import * as path from 'path';
 dotenv.config({ path: path.join(__dirname, '../../../', '.env') });
 console.log('Loaded environment variables from .env');
 
-const BASE_API_URL = process.env.API_BASE_URL || 'http://localhost:3000/api/data';
-const LOCAL_API_KEY = process.env.LOCAL_API_KEY || 'apikeylocal'; // Get API key from env
+const BASE_API_URL = process.env.API_BASE_URL || 'http://103.76.120.81:3000/api/data';
+const LOCAL_API_KEY = process.env.LOCAL_API_KEY || 'javael-api';
 
 const chartApi = axios.create({
     baseURL: `${BASE_API_URL}/chart`,
@@ -19,7 +19,6 @@ const gaugeApi = axios.create({
 console.log(`Chart API base URL set to: ${chartApi.defaults.baseURL}`);
 console.log(`Gauge API base URL set to: ${gaugeApi.defaults.baseURL}`);
 
-// Function to fetch data for today from the chart endpoint
 export const getDataToday = async () => {
     console.log('Fetching data for today...');
     try {
